@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Poker RL — a reinforcement learning project.">
+    <title>Poker RL | Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="page">
+      <header class="site-header">
+        <a class="site-name" href="index.html">Portfolio</a>
+        <a href="index.html#projects">All projects <span aria-hidden="true">↗</span></a>
+      </header>
+
+      <main id="main">
+        <div class="intro project-intro">
+          <p class="eyebrow">Reinforcement learning</p>
+          <h1>Poker RL</h1>
+        </div>
+
+        <nav class="section-nav" aria-label="Project sections">
+          <a href="#about">About</a>
+          <a href="#training-challenges">Challenges & Learning</a>
+          <a href="#results">Results</a>
+          <a href="#evaluation">Evaluation</a>
+        </nav>
+
+        <section id="about" class="project-section" aria-labelledby="about-title">
+          <h2 id="about-title">About</h2>
+          <!-- Add your project overview here. -->
+        </section>
+
+        <section id="training-challenges" class="project-section" aria-labelledby="training-challenges-title">
+          <h2 id="training-challenges-title">Training Challenges & Key Learning Points</h2>
+          <div class="training-columns">
+            <section class="training-column" aria-labelledby="challenges-column-title">
+              <h3 id="challenges-column-title">Challenges</h3>
+              <p>Exploitability oscillates back and forth near the end of training, sometimes straying away
+                from the minimum.
+              </p>
+            </section>
+            <section class="training-column" aria-labelledby="learning-column-title">
+              <h3 id="learning-column-title">Key Learning Points</h3>
+              <p>Instead of using one fixed frozen policy as oppponent, sample from multiple past policies where recent policies are sampled more frequently than earlier ones.</p>
+              <p>Adinaxnaxnasjnxaing points here.</p>
+            </section>
+          </div>
+        </section>
+
+        <section id="results" class="project-section" aria-labelledby="results-title">
+          <h2 id="results-title">Results</h2>
+          <!-- Add results, charts, or observations here. -->
+        </section>
+
+        <section id="evaluation" class="project-section" aria-labelledby="evaluation-title">
+          <h2 id="evaluation-title">Shortcomings and Improvements</h2>
+          <div>
+            The following figure shows the action probabilities for particular game states where we committed 4 chips to the pot and the opponent committed 8 chips, with differing hands. 
+            <br>
+            <img src="img/eval_1.png" alt="Description" width="500"><br>
+            In this game of Leduc Poker, having a Pair guarantees a win as the opponent can only have a High Card. Hence, folding in such a situation would be throwing a win away, which is 
+            what the policy seems to be doing as seen from the extremely high likelihood of folding in this particular example. Despite this anomaly, the policy seems to act more rationally
+            when it has a pair of Queens or Kings. The reason for this could be due to a low occurrence of these states during training, which could have led to the policy not 
+            learning the optimal action for these states. To accurately pinpoint the problem, we could log the number of visits to each state during training and perhaps the advantage computed
+            for the actions to determine whether the model is being given the right directional signal.
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer"><a href="index.html">← Back to portfolio</a></footer>
+    </div>
+  </body>
+</html>
